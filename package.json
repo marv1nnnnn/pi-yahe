@@ -24,6 +24,7 @@
   "files": [
     "src",
     "README.md",
+    "DEVELOPMENT.md",
     "LICENSE"
   ],
   "pi": {
