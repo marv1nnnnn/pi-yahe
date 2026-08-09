@@ -1,0 +1,56 @@
+{
+  "name": "pi-yahe",
+  "version": "0.1.0",
+  "description": "Yet Another Herdr Extension: emergent multi-agent orchestration for Pi through one composable tool.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Marvin Ma",
+  "homepage": "https://github.com/marv1nnnnn/pi-yahe#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marv1nnnnn/pi-yahe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marv1nnnnn/pi-yahe/issues"
+  },
+  "keywords": [
+    "pi-package",
+    "pi-coding-agent",
+    "herdr",
+    "multi-agent",
+    "agent-orchestration",
+    "terminal"
+  ],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": ["./src/index.ts"]
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "typebox": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.83.0",
+    "@earendil-works/pi-coding-agent": "^0.83.0",
+    "@types/node": "^26.1.2",
+    "typebox": "^1.3.10",
+    "typescript": "^7.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
