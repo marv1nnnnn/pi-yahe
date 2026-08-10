@@ -15,6 +15,8 @@ The motto is borrowed. [Manus](https://manus.im) argues that agents need **less 
 
 This is also the practical experiment behind my note [“Agents Need Shells, Not Selves”](https://marv1nnnnn.github.io/signals/journal/agents-need-shells-not-selves). Most multi-agent systems start by turning model invocations into employees: names, roles, inboxes, managers. I wanted to try the opposite — keep the abstraction at the level of a shell command, and let the agent decide at runtime whether another process is worth starting at all. pi-yahe is the smallest surface that makes that possible inside Pi and Herdr.
 
+![Wait, multi-agent orchestration is just shell processes? Always has been.](docs/images/shell-processes.jpg)
+
 > Experimental. Requires Pi 0.83+ and Herdr 0.7.5+.
 
 ## What it is
@@ -98,10 +100,6 @@ The topology stays open: one task may need three workers, the next may need none
 **Do not use YAHE when** you need enforced review policies, durable queues, resumable one-shot sessions, strict sandboxing, or a heterogeneous fleet API — the [comparison section](#design-trade-offs) points at packages built for those. Or when you need to see the full reasoning trace of a worker afterwards: run_pi workers are intentionally ephemeral, though their output survives in a run log ([Development](DEVELOPMENT.md)).
 
 ## Design trade-offs
-
-![A chaotic agent organization chart beside a developer calmly using a few terminal panes](docs/images/shells-not-selves.jpg)
-
-<p align="center"><sub>Left: invent a company. Right: start a process.</sub></p>
 
 ### Against tmux
 
