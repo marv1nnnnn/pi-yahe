@@ -4,6 +4,11 @@
 
 *A minimal bridge between Pi and Herdr for visible, task-driven multi-agent work.*
 
+<p align="center">
+  <img src="docs/images/yahe-hero.jpg" alt="A developer orchestrating several terminal workers whose results converge into one parent process" width="900">
+</p>
+<p align="center"><sub>One parent. Temporary terminals. Results flow home.</sub></p>
+
 YAHE stands for *Yet Another Herdr Extension* — the name is the thesis. The ecosystem already has good Herdr integrations; the last thing it needs is another framework. So this one tries to be the opposite: one tool, no structure to configure, and a quiet apology for existing at all.
 
 The motto is borrowed. [Manus](https://manus.im) argues that agents need **less structure, more intelligence** — fewer rails, more judgment. This project is a terminal-native attempt to take that seriously.
@@ -17,6 +22,13 @@ This is also the practical experiment behind my note [“Agents Need Shells, Not
 [Pi](https://pi.dev) is an extensible terminal coding agent. [Herdr](https://herdr.dev) is a persistent terminal workspace that owns the panes, processes, and project workspaces. Together they have everything needed for multi-agent work except one primitive: a way for the current Pi to assemble terminals into temporary workers and get their results back without waiting or polling.
 
 `pi-yahe` supplies that primitive as **one composable `herdr` tool**. The current Pi can launch a background command, create a fresh Pi with task-specific models and permissions, isolate a concurrent writer in a worktree, keep an interactive worker for follow-up, and receive asynchronous results automatically. No profiles, no workflow configuration, no daemon, no database, no queue — one extension, one tool, zero runtime npm dependencies.
+
+<p align="center">
+  <a href="https://github.com/herdrdev/herdr">
+    <img src="https://raw.githubusercontent.com/herdrdev/herdr/master/assets/screenshot.png" alt="Herdr showing multiple coding agents working in visible terminal panes" width="900">
+  </a>
+</p>
+<p align="center"><sub>The actual habitat: real agents in real Herdr panes. Screenshot from the Herdr project.</sub></p>
 
 ```text
 You ask Pi for an outcome
@@ -86,6 +98,10 @@ The topology stays open: one task may need three workers, the next may need none
 **Do not use YAHE when** you need enforced review policies, durable queues, resumable one-shot sessions, strict sandboxing, or a heterogeneous fleet API — the [comparison section](#design-trade-offs) points at packages built for those. Or when you need to see the full reasoning trace of a worker afterwards: run_pi workers are intentionally ephemeral, though their output survives in a run log ([Development](DEVELOPMENT.md)).
 
 ## Design trade-offs
+
+![A chaotic agent organization chart beside a developer calmly using a few terminal panes](docs/images/shells-not-selves.jpg)
+
+<p align="center"><sub>Left: invent a company. Right: start a process.</sub></p>
 
 ### Against tmux
 
