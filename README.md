@@ -4,11 +4,6 @@
 
 *A minimal bridge between Pi and Herdr for visible, task-driven multi-agent work.*
 
-<p align="center">
-  <img src="docs/images/yahe-hero.jpg" alt="A developer orchestrating several terminal workers whose results converge into one parent process" width="900">
-</p>
-<p align="center"><sub>One parent. Temporary terminals. Results flow home.</sub></p>
-
 YAHE stands for *Yet Another Herdr Extension* — the name is the thesis. The ecosystem already has good Herdr integrations; the last thing it needs is another framework. So this one tries to be the opposite: one tool, no structure to configure, and a quiet apology for existing at all.
 
 The motto is borrowed. [Manus](https://manus.im) argues that agents need **less structure, more intelligence** — fewer rails, more judgment. This project is a terminal-native attempt to take that seriously.
@@ -32,15 +27,17 @@ This is also the practical experiment behind my note [“Agents Need Shells, Not
 </p>
 <p align="center"><sub>The actual habitat: real agents in real Herdr panes. Screenshot from the Herdr project.</sub></p>
 
-```text
-You ask Pi for an outcome
-          │
-          ▼
-current Pi ──► tests in a visible tab ───────┐
-     │                                       │
-     ├──────► read-only investigator ────────┼──► results steer back automatically
-     │                                       │
-     └──────► isolated worktree + worker ────┘
+```mermaid
+flowchart LR
+    U[You ask Pi for an outcome] --> P[Current Pi]
+    P -->|monitor| T[Tests in a visible tab]
+    P -->|run_pi| I[Read-only investigator]
+    P -->|worktree + run_pi| W[Isolated writer]
+    T --> R[Async completion]
+    I --> R
+    W --> R
+    R -->|automatic steer| P
+    P --> O[Final outcome]
 ```
 
 ## Install
