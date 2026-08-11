@@ -4,6 +4,13 @@
 
 *A minimal bridge between Pi and Herdr for visible, task-driven multi-agent work.*
 
+<p align="center">
+  <a href="docs/images/pi-yahe-real-demo.mp4">
+    <img src="docs/images/pi-yahe-real-demo.gif" alt="A real pi-yahe session running tests visibly and returning a read-only worker's finding to the parent Pi" width="960">
+  </a>
+</p>
+<p align="center"><sub>One real session: visible tests, one read-only worker, and automatic return to the parent. 2× speed.</sub></p>
+
 YAHE stands for *Yet Another Herdr Extension* — the name is the thesis. The ecosystem already has good Herdr integrations; the last thing it needs is another framework. So this one tries to be the opposite: one tool, no structure to configure, and a quiet apology for existing at all.
 
 The motto is borrowed. [Manus](https://manus.im) argues that agents need **less structure, more intelligence** — fewer rails, more judgment. This project is a terminal-native attempt to take that seriously.
